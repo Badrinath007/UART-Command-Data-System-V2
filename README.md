@@ -3,7 +3,8 @@
 ## Project Overview
 This project implements a "Production-Grade" UART communication system in Verilog/SystemVerilog. Unlike basic bit-shifters, this system includes a Control Finite State Machine (FSM) that acts as a protocol parser, enabling secure and reliable Command and Data exchange between a PC (or MCU) and an FPGA.
 
-## V2 Key UpgradesBuffered Communication: 
+## V2 Key Upgrades
+Buffered Communication: 
 - Integrated 16-deep Synchronous FIFOs to manage data bursts and prevent data loss during high-speed transmission.Data Integrity:
 - Hardware-level Checksum validation blocks corrupt packets from affecting internal registers.
 - Advanced Verification: A self-checking testbench with a Shadow-Register Sentry to ensure 100% RTL-to-Simulation matching.
