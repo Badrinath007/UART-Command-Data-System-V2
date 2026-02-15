@@ -1,3 +1,5 @@
+# Steps to be followed while simulating in modelsim
+
 //When running from quatrus prime check whether it is running from your project directory and not in other directory
 // to check for it use pwd in the transcript window in the modelsim,if it shows some other directory, follow the below steps
 Go to File--->change directory and select your project directory.
@@ -21,3 +23,4 @@ add wave /uart_fifo_tb/dut/rx_fifo_full
 -----------End of Adding waveform----------
 //add wave -recursive *
 run 15 ms
+
