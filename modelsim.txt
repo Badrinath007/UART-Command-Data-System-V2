@@ -1,0 +1,23 @@
+//When running from quatrus prime check whether it is running from your project directory and not in other directory
+// to check for it use pwd in the transcript window in the modelsim,if it shows some other directory, follow the below steps
+Go to File--->change directory and select your project directory.
+Note: Select the main folder/directory and not subfolders/sub directories inside the main directory.
+Run the below commands one by one in the transcript window in the modelsim
+vlog -sv *.v *.sv
+vsim -novopt work.uart_fifo_tb
+-----Use this and do not use recrusive----
+add wave -noupdate -divider "SYSTEM"
+add wave /uart_fifo_tb/clk
+add wave /uart_fifo_tb/rst_n
+
+add wave -noupdate -divider "INPUT/OUTPUT"
+add wave /uart_fifo_tb/uart_rx
+add wave /uart_fifo_tb/error_led
+
+add wave -noupdate -divider "INTERNAL BRAIN"
+add wave /uart_fifo_tb/dut/p_state
+add wave /uart_fifo_tb/dut/reg_file
+add wave /uart_fifo_tb/dut/rx_fifo_full
+-----------End of Adding waveform----------
+//add wave -recursive *
+run 15 ms
