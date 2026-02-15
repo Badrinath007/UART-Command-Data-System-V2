@@ -16,6 +16,9 @@ Buffered Communication:
 - Protocol Frame: [Sync Byte: 0x55] [Command] [Data] [Checksum].
 - Logic Footprint: 108 ALMs.
 - Internal Memory: 256 Block bits (mapped to M10K/M20K).
+## UART Analysis and synthesis report
+
+![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_analysis_synthesis_resource_report.png)
 
 ## Architecture:
 The system follows a modular architecture divided into the Physical Layer (UART), the Buffer Layer (FIFO), and the Protocol Layer (FSM).UART PHY: Handles 16x oversampling and bit-level synchronization.
@@ -28,18 +31,28 @@ The "Internal Brain" is a 4-state Moore Machine that ensures strictly ordered pr
 - ST_DATA (10): Captures the payload data.
 - ST_CHKSUM (11): Calculates CMD + DATA and compares it to the incoming checksum.If Match: The reg_file is updated, and FSM returns to IDLE.If Mismatch: The error_led triggers, and the packet is discarded.
 
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/UART_fsm_state_diagram.png)
+  
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_tx_state_diagram.png)
+  
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_rx_state_diagram.png)
+
 ## Hardware Resource Utilization (Synthesis Report)
 - ResourceUsageLogic Utilization (ALMs):108
 - Dedicated Logic Registers150
 - Total Block Memory Bits256
 - Maximum Fan-out Nodeclk~input (166)
 
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_analysis_synthesis_resource_report.png)
+
 ## Verification & Results:
 The design was verified using a SystemVerilog testbench.
 Test Case: Checksum RejectionWhen a packet with an invalid checksum is sent, the error_led goes high, but the reg_file remains locked at its previous value (e.g., A5), preventing corruption.
+
 ## How to Run Synthesis: 
 Open the Quartus Project and run "Analysis & Synthesis.
-"Simulation: * Launch ModelSim.Compile files in /RTL.Load /TB/uart_fifo_tb.sv.
+"Simulation:* 
+Launch ModelSim.Compile files in /RTL.Load /TB/uart_fifo_tb.sv.
 Run the simulation for 3ms to see the full test suite results.
 
 ## Initial Design and testing phase and tools used:
@@ -49,7 +62,8 @@ Run the simulation for 3ms to see the full test suite results.
 ## Industry Standard tool usage and testing phase:
 
 - Used quatrus prime 18.1 Lite edition along with modelsim.
-- Used VS code for implementing verification such as functional verification,assertion based verification and formal verification.
+- Used VS code for implementing verification such as functional verification,assertion-based verification and formal verification.
 
 # Note:
-Check modelsim.txt file for simulation-related commands.
+- Check modelsim.txt file for simulation-related commands.
+- To view the RTL view,post fitting,post mapping and post synthesis, go to DOCS and you will png for post synthesis netlist and others are pdf containing one page of logic circuit.
