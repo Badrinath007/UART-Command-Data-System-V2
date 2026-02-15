@@ -36,6 +36,19 @@ The "Internal Brain" is a 4-state Moore Machine that ensures strictly ordered pr
 ## Verification & Results:
 The design was verified using a SystemVerilog testbench.
 Test Case: Checksum RejectionWhen a packet with an invalid checksum is sent, the error_led goes high, but the reg_file remains locked at its previous value (e.g., A5), preventing corruption.
-## How to RunSynthesis: Open the Quartus Project and run "Analysis & Synthesis.
+## How to RunSynthesis: 
+Open the Quartus Project and run "Analysis & Synthesis.
 "Simulation: * Launch ModelSim.Compile files in /RTL.Load /TB/uart_fifo_tb.sv.
 Run the simulation for 3ms to see the full test suite results.
+
+## Initial Design and testing phase and tools used:
+- Used WSL ubuntu 20.04LTS with icarus verilog+gtkwave+yosys to code rtl,simulate and synthesis.
+- Used shell script to automate compilation and waveform generation.
+
+## Industry Standard tool usage and testing phase:
+
+- Used quatrus prime 18.1 Lite edition along with modelsim.
+- Used VS code for implementing verification such as functional verification,assertion based verification and formal verification.
+
+# Note:
+Check modelsim.txt file for simulation-related commands.
