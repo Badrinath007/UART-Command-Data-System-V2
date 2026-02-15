@@ -83,4 +83,5 @@ Run the simulation for 3ms to see the full test suite results.
 
 # Note:
 - Check modelsim.txt file for simulation-related commands.
+- press f in the keyboard fit the waveform so that you can see the waveform,clock toggling etc.
 - To view the RTL view,post fitting,post mapping and post synthesis, go to DOCS and you will png for post synthesis netlist and others are pdf containing one page of logic circuit.
