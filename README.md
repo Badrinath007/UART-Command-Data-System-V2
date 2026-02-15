@@ -45,9 +45,23 @@ The "Internal Brain" is a 4-state Moore Machine that ensures strictly ordered pr
 
   ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_analysis_synthesis_resource_report.png)
 
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_fmax.png)
+
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_sys_clk.png)
+
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_setup_slack.png)
+
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_hold_slack.png)
+
+  ![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_pulse_width.png)
+
 ## Verification & Results:
 The design was verified using a SystemVerilog testbench.
 Test Case: Checksum RejectionWhen a packet with an invalid checksum is sent, the error_led goes high, but the reg_file remains locked at its previous value (e.g., A5), preventing corruption.
+
+## Results of verification
+
+![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Verification_logs_uart.png)
 
 ## How to Run Synthesis: 
 Open the Quartus Project and run "Analysis & Synthesis.
@@ -63,6 +77,9 @@ Run the simulation for 3ms to see the full test suite results.
 
 - Used quatrus prime 18.1 Lite edition along with modelsim.
 - Used VS code for implementing verification such as functional verification,assertion-based verification and formal verification.
+
+## OUTPUT WAVEFORM
+![image](https://github.com/Badrinath007/UART-Command-Data-System-V2/blob/main/Docs/Uart_design_with_fifo_packet_protocol_waveform_output.png)
 
 # Note:
 - Check modelsim.txt file for simulation-related commands.
